@@ -67,24 +67,28 @@ function noteOn(note) {
         for (val = 36; val < 52; val++) {
             colorM(val, 78);
         }
+        addLongitude(10)
     }
 
     if (note == 55) {
         for (val = 52; val < 68; val++) {
             colorM(val, 72);
         }
+        addLat(10)
     }
 
     if (note == 80) {
         for (val = 68; val < 84; val++) {
             colorM(val, 122);
         }
+        addLongitude(-10)
     }
 
     if (note == 84) {
         for (val = 84; val < 100; val++) {
             colorM(val, 81);
         }
+        addLat(-10)
     }
 
 }
