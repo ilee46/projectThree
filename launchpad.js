@@ -41,12 +41,10 @@ function handleInput(input) {
     console.log(`command: ${command}, note: ${note}, velocity: ${velocity}`);
     if (velocity > 0) {
         noteOn(note);
-        document.getElementById('beginningString').textContent = "Ouch"
     }
 
     if (velocity == 0) {
         noteOff(note);
-        document.getElementById('beginningString').textContent = "Ah"
     }
     if (note >= 36 && note <= 51) {
         document.body.style.backgroundColor = "cyan"

@@ -1,63 +1,63 @@
-// what is an api?
-    // webpage -> access database -> display the results
+// // what is an api?
+//     // webpage -> access database -> display the results
 
-// anatomy of an api call
+// // anatomy of an api call
 
-    // api request
-        // request type: GET, POST
-        // api url
-        // params
-        // key
+//     // api request
+//         // request type: GET, POST
+//         // api url
+//         // params
+//         // key
 
-    // api response
-        // JSON
-        // https://www.google.com/search?q=json&client=firefox-b-1-d&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjSm7-X98H7AhWpLUQIHaqaADQQ_AUoAXoECAIQAw&biw=1536&bih=711&dpr=1.25#imgrc=MQ70IxKRTe-bUM
-
-
-// example api calls
-// 1.) https://openweathermap.org/api
-// 2.) https://api.nasa.gov/
-// 3.) https://developers.google.com/maps/documentation/javascript/streetview#maps_streetview_simple-javascript
-// 5.) https://newsapi.org/
+//     // api response
+//         // JSON
+//         // https://www.google.com/search?q=json&client=firefox-b-1-d&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjSm7-X98H7AhWpLUQIHaqaADQQ_AUoAXoECAIQAw&biw=1536&bih=711&dpr=1.25#imgrc=MQ70IxKRTe-bUM
 
 
-// open weather api demo
-
-// Step 1.) GET API KEY 
-        // go to https://openweathermap.org/api and follow sign up instructions 
-        // Make a new key and head over to the api documentation @ https://openweathermap.org/current
-        // add jquery cdn to html file url @ https://cdnjs.com/libraries/jquery 
-        // load this script into html as well
-
-// Step 2.) Build your paramaters based on the api documentation
-        // url = "https://api.openweathermap.org/data/2.5/weather"
-        // key = "77cc58b950a86912372c32289920f6c2"
-        // // Get lat and long from google https://www.google.com/search?client=firefox-b-1-d&q=lat+lon+of+chicago
-        // lat = "41.8781"
-        // lon = "-87.6298" //use negative for west
-
-        // params = {"lat": lat,
-        //             "lon": lon,
-        //             "appid": key
-        //             }
+// // example api calls
+// // 1.) https://openweathermap.org/api
+// // 2.) https://api.nasa.gov/
+// // 3.) https://developers.google.com/maps/documentation/javascript/streetview#maps_streetview_simple-javascript
+// // 5.) https://newsapi.org/
 
 
-// Step 3.) Build your paramaters based on the api documentation    
-    // function makeApiCall(){
-    //     $.ajax({
-    //         url: url,
-    //         type: "GET",
-    //         data: params,
-    //         success: function(resp){
-    //             console.log(resp);
-    //         },
-    //         error: function(error){
-    //             console.log(error)
-    //         }
-    //     });
-    // }
+// // open weather api demo
 
-    // https://api.openweathermap.org/data/2.5/weather?lat=41.8781&lon=-87.6298&appid=6895f508d6b179d3b88d1cda4bcf0898
+// // Step 1.) GET API KEY 
+//         // go to https://openweathermap.org/api and follow sign up instructions 
+//         // Make a new key and head over to the api documentation @ https://openweathermap.org/current
+//         // add jquery cdn to html file url @ https://cdnjs.com/libraries/jquery 
+//         // load this script into html as well
+
+// // Step 2.) Build your paramaters based on the api documentation
+//         url = "https://api.openweathermap.org/data/2.5/weather"
+//         key = "77cc58b950a86912372c32289920f6c2"
+//         // Get lat and long from google https://www.google.com/search?client=firefox-b-1-d&q=lat+lon+of+chicago
+//         lat = "41.8781"
+//         lon = "-87.6298" //use negative for west
+
+//         params = {"lat": lat,
+//                     "lon": lon,
+//                     "appid": key
+//                     }
+
+
+// // Step 3.) Build your paramaters based on the api documentation    
+//     function makeApiCall(){
+//         $.ajax({
+//             url: url,
+//             type: "GET",
+//             data: params,
+//             success: function(resp){
+//                 console.log(resp);
+//             },
+//             error: function(error){
+//                 console.log(error)
+//             }
+//         });
+//     }
+
+//     // https://api.openweathermap.org/data/2.5/weather?lat=41.8781&lon=-87.6298&appid=6895f508d6b179d3b88d1cda4bcf0898
 
 
 
@@ -72,7 +72,7 @@
 //     lon = "-87.6298" //use negative for west
 //     weatherParams = {"lat": lat,
 //                         "lon": lon,
-//                         "units": "imperial", //units taken from api documentation
+//                         "units": "metric", //units taken from api documentation
 //                         "appid": weatherKey
 //                         }
     
@@ -120,7 +120,7 @@
 //     lon = "-87.6298" 
 //     weatherParams = {"lat": lat,
 //                         "lon": lon,
-//                         "units": "imperial",
+//                         "units": "metric",
 //                         "appid": weatherKey
 //                         }
 
@@ -219,7 +219,7 @@ function subLat(number){
 function parseWeather(resp){
     temp = resp["main"]["temp"]
     windSpeed = resp["wind"]["speed"]
-    console.log(`temp in farinheight = ${temp}\n wind speed in mph = ${windSpeed}`)
+    console.log(`temp in celsius = ${temp}\n wind speed in m/s = ${windSpeed}`)
     return [temp, windSpeed];
 }
 
@@ -257,7 +257,7 @@ function makeApiCall(){
     lon = sessionStorage.getItem("lon") 
     weatherParams = {"lat": lat,
                         "lon": lon,
-                        "units": "imperial",
+                        "units": "metric",
                         "appid": weatherKey
                         }
     console.log(weatherParams)
@@ -268,7 +268,7 @@ function makeApiCall(){
         type: "GET",
         data: weatherParams,
         success: function(resp){
-            changeDisplay(resp);
+            console.log(resp)
         },
         error: function(error){
             console.log(error)
