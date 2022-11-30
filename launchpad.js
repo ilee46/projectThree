@@ -63,32 +63,20 @@ function colorM(key, clr) {
 
 function noteOn(note) {
 
-    if (note == 51) {
-        for (val = 36; val < 52; val++) {
-            colorM(val, 78);
-        }
-        addLongitude(10)
-    }
-
-    if (note == 55) {
-        for (val = 52; val < 68; val++) {
-            colorM(val, 72);
-        }
-        addLat(10)
-    }
-
-    if (note == 80) {
-        for (val = 68; val < 84; val++) {
-            colorM(val, 122);
-        }
+    if (note >= 36 && note <= 51) {
         addLongitude(-10)
     }
 
-    if (note == 84) {
-        for (val = 84; val < 100; val++) {
-            colorM(val, 81);
-        }
+    if (note >= 52 && note <= 67) {
         addLat(-10)
+    }
+
+    if (note >= 68 && note <= 83) {
+        addLongitude(10)
+    }
+
+    if (note >= 84 && note <= 99) {
+        addLat(10)
     }
 
 }
