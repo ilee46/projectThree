@@ -339,11 +339,11 @@ function makeApiCall(){
                 }
             }
 
-            if (clouds < 25) {
+            if (clouds < 33) {
                 for (i = 36; i < 52; i++) {
                     colorM(i, 3);
                 }
-            } else if (clouds < 50) {
+            } else if (clouds < 66) {
                 for (i = 36; i < 52; i++) {
                     colorM(i, 2);
                 }
