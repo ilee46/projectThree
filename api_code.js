@@ -338,6 +338,20 @@ function makeApiCall(){
                     colorM(i, 72);
                 }
             }
+
+            if (clouds < 25) {
+                for (i = 36; i < 52; i++) {
+                    colorM(i, 3);
+                }
+            } else if (clouds < 50) {
+                for (i = 36; i < 52; i++) {
+                    colorM(i, 2);
+                }
+            } else {
+                for (i = 36; i < 52; i++) {
+                    colorM(i, 1);
+                }
+            }
         },
         error: function(error){
             console.log(error)
