@@ -219,7 +219,8 @@ function subLat(number){
 function parseWeather(resp){
     temp = resp["main"]["temp"]
     windSpeed = resp["wind"]["speed"]
-    console.log(`temp in celsius = ${temp}\n wind speed in m/s = ${windSpeed}`)
+    clouds = resp["clouds"]["all"]
+    console.log(`temp in celsius = ${temp}\n wind speed in m/s = ${windSpeed}\n clouds = ${clouds}`)
     return [temp, windSpeed];
 }
 
@@ -236,7 +237,7 @@ function changeDisplay(resp){
     let newOBJ = document.createElement("div");
     
     // Call the scaeProperly function to map the range of inputs to the coresponding out put range. 0-255 for color and 0-100 for height. the height was arbitrarly chosen
-    properTemp = scaleProperly(temp, 0, 120, 0, 255); 
+    properTemp = scaleProperly(temp, -50, 50, 0, 255); 
     properWindspeed = scaleProperly(windSpeed,0,8,0,100)
 
     newOBJ.style.backgroundColor = `rgb(${properTemp},50,50)`;
@@ -269,6 +270,74 @@ function makeApiCall(){
         data: weatherParams,
         success: function(resp){
             console.log(resp)
+            let [temp, windSpeed] = parseWeather(resp);
+            if (temp < -25) {
+                for (i = 52; i < 68; i++) {
+                    colorM(i, 53);
+                }
+            } else if (temp < -10) {
+                for (i = 52; i < 68; i++) {
+                    colorM(i, 45);
+                }
+            } else if (temp < 0) {
+                for (i = 52; i < 68; i++) {
+                    colorM(i, 41);
+                }
+            } else if (temp < 5) {
+                for (i = 52; i < 68; i++) {
+                    colorM(i, 33);
+                }
+            } else if (temp < 10) {
+                for (i = 52; i < 68; i++) {
+                    colorM(i, 123);
+                }
+            } else if (temp < 20) {
+                for (i = 52; i < 68; i++) {
+                    colorM(i, 21);
+                }
+            } else if (temp < 25) {
+                for (i = 52; i < 68; i++) {
+                    colorM(i, 13);
+                }
+            } else if (temp < 30) {
+                for (i = 52; i < 68; i++) {
+                    colorM(i, 9);
+                }
+            } else if (temp < 40) {
+                for (i = 52; i < 68; i++) {
+                    colorM(i, 5);
+                }
+            } else {
+                for (i = 52; i < 68; i++) {
+                    colorM(i, 59);
+                }
+            }
+
+            if (windSpeed < 2) {
+                for (i = 84; i < 100; i++) {
+                    colorM(i, 21);
+                }
+            } else if (windSpeed < 5) {
+                for (i = 84; i < 100; i++) {
+                    colorM(i, 25);
+                }
+            } else if (windSpeed < 8) {
+                for (i = 84; i < 100; i++) {
+                    colorM(i, 15);
+                }
+            } else if (windSpeed < 12) {
+                for (i = 84; i < 100; i++) {
+                    colorM(i, 13);
+                }
+            } else if (windSpeed < 18) {
+                for (i = 84; i < 100; i++) {
+                    colorM(i, 9);
+                }
+            } else {
+                for (i = 84; i < 100; i++) {
+                    colorM(i, 72);
+                }
+            }
         },
         error: function(error){
             console.log(error)

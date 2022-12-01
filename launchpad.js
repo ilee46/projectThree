@@ -46,15 +46,7 @@ function handleInput(input) {
     if (velocity == 0) {
         noteOff(note);
     }
-    if (note >= 36 && note <= 51) {
-        document.body.style.backgroundColor = "cyan"
-    } else if (note >= 52 && note <= 67) {
-        document.body.style.backgroundColor = "red"
-    } else if (note >= 68 && note <= 83) {
-        document.body.style.backgroundColor = "green"
-    } else if (note >= 84 && note <= 99) {
-        document.body.style.backgroundColor = "purple"
-    }
+
 }
 
 function colorM(key, clr) {
