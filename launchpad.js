@@ -63,19 +63,67 @@ function colorM(key, clr) {
 
 function noteOn(note) {
 
-    if (note >= 36 && note <= 51) {
+    if (note >= 36 && note <= 39) {
         addLongitude(-10)
     }
 
-    if (note >= 52 && note <= 67) {
+    if (note >= 40 && note <= 43) {
+        addLongitude(-5)
+    }
+
+    if (note >= 44 && note <= 47) {
+        addLongitude(-2)
+    }
+
+    if (note >= 48 && note <= 51) {
+        addLongitude(-1)
+    }
+
+    if (note >= 52 && note <= 55) {
+        addLat(-1)
+    }
+
+    if (note >= 56 && note <= 59) {
+        addLat(-2)
+    }
+
+    if (note >= 60 && note <= 63) {
+        addLat(-5)
+    }
+
+    if (note >= 64 && note <= 67) {
         addLat(-10)
     }
 
-    if (note >= 68 && note <= 83) {
+    if (note >= 68 && note <= 71) {
         addLongitude(10)
     }
 
-    if (note >= 84 && note <= 99) {
+    if (note >= 72 && note <= 75) {
+        addLongitude(5)
+    }
+
+    if (note >= 76 && note <= 79) {
+        addLongitude(2)
+    }
+
+    if (note >= 80 && note <= 83) {
+        addLongitude(1)
+    }
+
+    if (note >= 84 && note <= 87) {
+        addLat(1)
+    }
+
+    if (note >= 88 && note <= 91) {
+        addLat(2)
+    }
+
+    if (note >= 92 && note <= 95) {
+        addLat(5)
+    }
+
+    if (note >= 96 && note <= 99) {
         addLat(10)
     }
 
