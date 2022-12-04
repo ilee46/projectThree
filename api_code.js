@@ -220,8 +220,9 @@ function parseWeather(resp){
     temp = resp["main"]["temp"]
     windSpeed = resp["wind"]["speed"]
     clouds = resp["clouds"]["all"]
-    console.log(`temp in celsius = ${temp}\n wind speed in m/s = ${windSpeed}\n clouds = ${clouds}`)
-    return [temp, windSpeed];
+    humidity = resp["main"]["humidity"]
+    console.log(`temp in celsius = ${temp}\n wind speed in m/s = ${windSpeed}\n clouds = ${clouds}\n humidity = ${humidity}%`)
+    return [temp, windSpeed, clouds, humidity];
 }
 
 function scaleProperly(number, inMin, inMax, outMin, outMax) {
@@ -270,7 +271,7 @@ function makeApiCall(){
         data: weatherParams,
         success: function(resp){
             console.log(resp)
-            let [temp, windSpeed] = parseWeather(resp);
+            let [temp, windSpeed, clouds, humidity] = parseWeather(resp);
             if (temp < -25) {
                 for (i = 52; i < 68; i++) {
                     colorM(i, 53);
@@ -350,6 +351,20 @@ function makeApiCall(){
             } else {
                 for (i = 36; i < 52; i++) {
                     colorM(i, 1);
+                }
+            }
+
+            if (humidity < 50) {
+                for (i = 68; i < 84; i++) {
+                    colorM(i, 83);
+                }
+            } else if (humidity < 60) {
+                for (i = 68; i < 84; i++) {
+                    colorM(i, 84);
+                }
+            } else if (humidity < 75) {
+                for (i = 68; i < 84; i++) {
+                    colorM(i, 74);
                 }
             }
         },
