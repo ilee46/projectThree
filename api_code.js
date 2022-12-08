@@ -366,6 +366,10 @@ function makeApiCall(){
                 for (i = 68; i < 84; i++) {
                     colorM(i, 74);
                 }
+            } else if (humidity < 100) {
+                for (i = 68; i < 84; i++) {
+                    colorM(i, 79);
+                }
             }
         },
         error: function(error){
